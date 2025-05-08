@@ -4,11 +4,13 @@ import torch
 import cv2
 import numpy as np
 import tempfile
+import os
 
 # Load YOLOv5 model
 @st.cache_resource
 def load_model():
-    model = torch.hub.load('ultralytics/yolov5', 'custom', path = 'best.pt', force_reload=True)
+    model_path = os.getenv("MODEL_PATH", "best.pt")  # Use an environment variable for the model path
+    model = torch.hub.load('ultralytics/yolov5', 'custom', model_path, force_reload=True)
     return model
 
 model = load_model()
