@@ -8,7 +8,7 @@ import tempfile
 # Load YOLOv5 model
 @st.cache_resource
 def load_model():
-    model = torch.hub.load('ultralytics/yolov5', 'custom', 'best.pt', force_reload=True)
+    model = torch.hub.load('ultralytics/yolov5', 'custom', path_or_model='best.pt', force_reload=True)
     return model
 
 model = load_model()
