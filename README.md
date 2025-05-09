@@ -17,6 +17,6 @@ The result of the images training is swohn in this confusion matrix. This traini
 https://youtu.be/B2h0slHK-S0
 
 # Web Deployment
-Currently failed to deploy the code on streamlit cloud due to streamlit cloud is run on linux, and on YOLOv5 have some path that define as window path. 
+Currently failed to deploy the code on streamlit cloud due to streamlit cloud is run on linux, and on YOLOv5 have some path that define as window path. Anyway this is the link: https://cardetection-7owijjpsthzcihmn2ujfet.streamlit.app/ 
 
 
