@@ -1,2 +1,2 @@
-import torch
-print(torch.__version__)  # This should show the installed PyTorch version
+import cv2
+print(cv2.__version__)
