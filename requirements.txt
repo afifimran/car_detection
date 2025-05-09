@@ -1,0 +1,7 @@
+# requirements.txt
+-r yolov5/requirements.txt
+streamlit
+opencv-python
+torch
+torchvision
+Pillow
