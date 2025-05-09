@@ -1,13 +1,24 @@
 import streamlit as st
 from PIL import Image
 import torch
+import cv2
 import numpy as np
 import tempfile
-
-# Load YOLOv5 model
+import sys
+from pathlib import Path
 @st.cache_resource
 def load_model():
-    model = torch.hub.load('ultralytics/yolov5', 'custom', 'best.pt', force_reload=True)
+    # Add YOLOv5 repo to sys.path
+    yolo_path = Path("yolov5")
+    sys.path.append(str(yolo_path.resolve()))
+
+    # Load custom model from local repo
+    model = torch.hub.load(
+        str(yolo_path),  # Local repo path
+        'custom',        # Custom model loading
+        path='best.pt',  # Path to your weights
+        source='local'   # Important: tells torch to load from local path
+    )
     return model
 
 model = load_model()
