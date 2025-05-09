@@ -4,13 +4,21 @@ import torch
 import cv2
 import numpy as np
 import tempfile
-import os
-
-# Load YOLOv5 model
+import sys
+from pathlib import Path
 @st.cache_resource
 def load_model():
-    model_path = os.getenv("MODEL_PATH", "best.pt")  # Use an environment variable for the model path
-    model = torch.hub.load('ultralytics/yolov5', 'custom', model_path, force_reload=True)
+    # Add YOLOv5 repo to sys.path
+    yolo_path = Path("yolov5")
+    sys.path.append(str(yolo_path.resolve()))
+
+    # Load custom model from local repo
+    model = torch.hub.load(
+        str(yolo_path),  # Local repo path
+        'custom',        # Custom model loading
+        path='yolov5/best.pt',  # Path to your weights
+        source='local'   # Important: tells torch to load from local path
+    )
     return model
 
 model = load_model()
