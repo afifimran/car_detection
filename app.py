@@ -16,7 +16,7 @@ def load_model():
     model = torch.hub.load(
         str(yolo_path),  # Local repo path
         'custom',        # Custom model loading
-        path='yolov5/best.pt',  # Path to your weights
+        path='best.pt',  # Path to your weights
         source='local'   # Important: tells torch to load from local path
     )
     return model
